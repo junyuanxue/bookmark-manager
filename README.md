@@ -2,7 +2,7 @@
 
 ## Introduction
 
-User stories:
+User stories: :page_with_curl:
 ```
 As a Makers student
 So that I can see what has been saved

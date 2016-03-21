@@ -5,8 +5,8 @@
 User stories: :page_with_curl:
 ```
 As a Makers student
-So that I can see what has been saved
-I want to see list of links
+So that I can quickly go to web sites I regularly visit
+I would like to see a list of links on the homepage
 
 As a Makers student
 So that I can find websites I recently bookmarked

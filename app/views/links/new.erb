@@ -1,7 +1,17 @@
+<h1> New Link </h1>
+
 <form action="/links" method="post">
-  <label>Enter a new website:</label>
-  <input type="text" name="title">
-  <label>URL:</label>
-  <input type="text" name="url">
-  <button type="submit">Add link</button>
+  <label for="title">
+    Title:
+    <input type="text" name="title" />
+  </label>
+  <label for="url">
+    URL:
+    <input type="text" name="url" />
+  </label>
+  <label for="tags">
+    Tags:
+    <input type="text" name="tags" />
+  </label>
+  <button type="submit">Create link</button>
 </form>

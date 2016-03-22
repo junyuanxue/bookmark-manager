@@ -8,7 +8,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get "/links/new" do
-    erb :"links/new_link"
+    erb :"links/new"
   end
 
   post "/links" do

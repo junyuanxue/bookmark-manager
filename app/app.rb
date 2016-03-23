@@ -7,7 +7,7 @@ class BookmarkManager < Sinatra::Base
   set :sessions, true
 
   get '/' do
-    # redirect '/links'
+    redirect '/links'
   end
 
   get '/links' do

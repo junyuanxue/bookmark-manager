@@ -5,8 +5,14 @@ Bookmark Manager
 ```
 $ git clone http://...
 $ bundle
-
+$ ruby app/app.rb
 ```
+
+
+### one-to-many vs Many-to-many
+
+http://stackoverflow.com/questions/3113885/difference-between-one-to-many-many-to-one-and-many-to-many
+
 
 ## User Stories
 
@@ -28,6 +34,9 @@ So I can search my list
 I want to be able to filter links by tags
 ```
 
+## Heroku Link
+
+https://evening-cove-21123.herokuapp.com/
 
 ## Original Link
 https://github.com/makersacademy/course/blob/master/bookmark_manager

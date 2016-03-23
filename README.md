@@ -1,5 +1,13 @@
 # Bookmark Manager
 
+Bookmark Manager
+
+```
+$ git clone http://...
+$ bundle
+
+```
+
 ## User Stories
 
 ```

@@ -1,6 +1,6 @@
 feature 'shows a list of links' do
   scenario 'returns a list of links to the user' do
-    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    # Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
 
     visit '/links'
     expect(page.status_code).to eq 200

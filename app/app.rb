@@ -1,17 +1,18 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'tilt/erb'
 require_relative 'models/data_mapper_setup'
 
 class BookmarkManager < Sinatra::Base
-  set :sessions, true
+  enable :sessions
+  set :sessions_secret, 'super secret'
 
   get '/' do
     redirect '/links'
   end
 
   get '/links' do
-    @name = User.last.name if User.last
     @links = Link.all
     erb :'links/index'
   end
@@ -41,11 +42,15 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/user' do
-    user = User.create(name: params[:name], email: params[:email])
-    user.password params[:password]
-    user.save
-    p user
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/links'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   run! if app_file == $0

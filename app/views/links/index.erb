@@ -5,6 +5,7 @@
     <li>
       Title: <%= link.title %>
       URL:   <%= link.url   %>
+      Tags:  <%= link.tags.map{ |tag| "<a href='/tags/#{tag.name}'>#{tag.name}</a>" } %>
     </li>
   <% end %>
 </ul>

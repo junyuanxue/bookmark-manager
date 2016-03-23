@@ -13,6 +13,9 @@ $ ruby app/app.rb
 
 http://stackoverflow.com/questions/3113885/difference-between-one-to-many-many-to-one-and-many-to-many
 
+Datamapper
+http://datamapper.org/docs/associations.html
+
 
 ## User Stories
 

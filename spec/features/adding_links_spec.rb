@@ -4,7 +4,7 @@ feature 'adding links' do
     visit 'links/new'
     fill_in('url', with: 'http://google.com')
     fill_in('title', with: 'Google')
-    fill_in('tag', with: 'search engine')
+    fill_in('tags', with: 'education')
     click_button 'Add link'
   end
 
@@ -15,7 +15,7 @@ feature 'adding links' do
       end
   end
 
-  xscenario 'tags can be added' do
+  scenario 'tags can be added' do
     link = Link.first
     expect(link.tags.map(&:name)).to include('education')
   end

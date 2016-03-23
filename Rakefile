@@ -12,4 +12,11 @@ namespace :db do
     DataMapper.auto_migrate!
     puts 'Auto-migrate complete (data was lost)'
   end
+
+  desc 'destructive upgrade test db'
+  task :auto_migrate_test do
+    RAKE_ENV='test'
+    DataMapper.auto_upgrade!
+    puts 'Auto-migrate complete (data was lost)'
+  end
 end

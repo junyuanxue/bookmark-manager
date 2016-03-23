@@ -5,9 +5,14 @@
   </head>
 
   <body>
-  <% if current_user %>
-    Welcome, <%= current_user.name %>
-  <% end %>
-  <%= yield %>
+    <% if current_user %>
+      Welcome, <%= current_user.name %>
+    <% end %>
+
+    <% if flash.now[:confirm_pw_error] %>
+      <%= flash.now[:confirm_pw_error] %>
+    <% end %>
+
+    <%= yield %>
   </body>
 </html>

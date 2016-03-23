@@ -26,5 +26,6 @@ feature 'user sign up' do
       click_button 'Sign up'
     end
     expect { password_mismatch }.not_to change(User, :count)
+    expect(page).to have_content 'Password confirmation did not match password'
   end
 end

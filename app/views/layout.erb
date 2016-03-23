@@ -9,8 +9,8 @@
       Welcome, <%= current_user.name %>
     <% end %>
 
-    <% if flash.now[:confirm_pw_error] %>
-      <%= flash.now[:confirm_pw_error] %>
+    <% if flash.now[:notice] %>
+      <div id="notice"><%= flash.now[:notice] %></div>
     <% end %>
 
     <%= yield %>

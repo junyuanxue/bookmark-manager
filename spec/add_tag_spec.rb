@@ -5,8 +5,7 @@ feature 'Add tags' do
     fill_in :url, with: 'www.skysports.com'
     fill_in :tags, with: 'sports,tv'
     click_button 'Add link'
-    expect(page).to have_content('sports')
-    expect(page).to have_content('tv')
-
+    link = Link.last
+    expect(link.tags.map(&:name)).to include 'sports', 'tv'
   end
 end

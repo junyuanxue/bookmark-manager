@@ -3,6 +3,13 @@ body {
   background-color: #FFFFCC;
 }
 
+input {
+  width: 200px;
+  height: 40px;
+  text-align: left;
+  border: 1px solid gray;
+}
+
 input:invalid {
   border: 1px solid red;
 }

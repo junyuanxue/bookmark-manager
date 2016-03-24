@@ -5,32 +5,32 @@ require 'sinatra/flash'
 
 
 class BookmarkManager < Sinatra::Base
-
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super_secret'
   register Sinatra::Flash
 
   get '/' do
-    redirect(:links)
+    redirect :links
   end
 
   get '/links' do
     @links = Link.all
-    erb(:links)
+    erb :links
   end
 
   get '/add_link' do
-    erb(:add_link)
+    erb :add_link
   end
 
-  post '/add_link' do
+  post '/links' do
     link = Link.create(title: params[:title], url: params[:url])
     params[:tags].split(",").each do |tag_name|
       tag = Tag.create(name: tag_name)
       link.tags << tag
       link.save
     end
-    redirect(:links)
+    redirect :links
   end
 
   get '/tags/:name' do
@@ -53,12 +53,30 @@ class BookmarkManager < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/links'
     else
-      # flash.now[:invalid_email] = 'Invalid email format.' if @user.valid?(:email)
-      # flash.now[:duplicate_email] = 'Email already registered.' if @user.valid?
-      flash.now[:password_mismatch] = 'Passwords did not match.' unless @user.valid?
-      
+      flash.now[:errors] = @user.errors.full_messages
       erb :sign_up
     end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id]=user.id
+      redirect '/links'
+    else
+      flash.now[:errors] = ["Incorrect email or password"]
+      erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Thanks for using Bookmark Manager'
+    redirect '/links'
   end
 
   helpers do

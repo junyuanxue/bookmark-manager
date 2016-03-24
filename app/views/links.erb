@@ -1,15 +1,19 @@
-<h2>Links...</h2>
+<h2>Links</h2>
+
+<% if flash[:notice] %>
+  <div><%= flash[:notice] %></div>
+<% end %>
 
 <ul id="links">
   <li>
     <% @links.each do |link| %>
     Title: <%= link.title %>
     URL:   <%= link.url %>
-    Tags:   <%= link.tags.map(&:name) %>
+    Tags:  <%= link.tags.map(&:name).join(", ") %>
   <li>
   <% end %>
 </ul>
 
-<form action="/add_link">
-  <button type="submit">Add link</button>
+<form action='/add_link'>
+  <button type='submit'>Add link</button>
 </form>

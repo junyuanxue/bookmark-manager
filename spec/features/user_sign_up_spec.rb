@@ -24,7 +24,7 @@ feature 'User sign up' do
 
     scenario 'Display message when passwords mismatch' do
       sign_up_with_pw_mismatch
-      message = "Passwords did not match"
+      message = 'Password does not match the confirmation'
       expect(page.current_path).to eq '/sign_up'
       expect(page).to have_content(message)
     end
@@ -34,19 +34,20 @@ feature 'User sign up' do
     scenario 'User cannot sign up without entering an email' do
       sign_up_invalid_email
       expect(User.count).to eq 0
+      expect(page).to have_content 'Email must not be blank'
     end
 
-    # scenario 'User cannot sign up with invalid email format' do
-    #   sign_up_invalid_email(email: 'invalid@email')
-    #   expect(User.count).to eq 0
-    #   expect(page).to have_content 'Invalid email format'
-    # end
-    #
-    # scenario 'User cannot sign up with an already registered email' do
-    #   sign_up
-    #   sign_up_invalid_email(email: 'joe@makersacademy.com')
-    #   expect(User.count).to eq 1
-    #   expect(page).to have_content 'Email already registered'
-    # end
+    scenario 'User cannot sign up with invalid email format' do
+      sign_up_invalid_email(email: 'invalid@email')
+      expect(User.count).to eq 0
+      expect(page).to have_content 'Email has an invalid format'
+    end
+
+    scenario 'User cannot sign up with an already registered email' do
+      sign_up
+      sign_up_invalid_email(email: 'joe@makersacademy.com')
+      expect(User.count).to eq 1
+      expect(page).to have_content 'Email is already taken'
+    end
   end
 end

@@ -1,29 +1,25 @@
-<% if flash.now[:password_mismatch] %>
-  <p><%= flash.now[:password_mismatch] %></p>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <ul><%= error %></ul>
+    <% end %>
+  </ul>
 <% end %>
 
 
 
 <form action='/sign_up' method='post'>
   <p>
-    <label for='name'>
-    Name: <input type='text' name='name' value='<%= @user.name %>' required>
-    </label>
+    <input type='text' name='name' placeholder='Please enter your name' value='<%= @user.name %>' required>
   </p>
   <p>
-    <label for='email'>
-      Email: <input type='email' name='email' value='<%= @user.email %>' required>
-    </label>
+    <input type='email' name='email' placeholder='Please enter your Email' value='<%= @user.email %>' required>
   </p>
   <p>
-    <label for='password'>
-      Password: <input type='password' name='password' required>
-    </label>
+    <input type='password' name='password' placeholder='Please enter your password' required>
   </p>
   <p>
-    <label for='password_confirmation'>
-      Password: <input type='password' name='password_confirmation' required>
-    </label>
+    <input type='password' name='password_confirmation' placeholder='Please confirm your password' required>
   </p>
   <p>
     <button type='submit'>Sign up</button>

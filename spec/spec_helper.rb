@@ -8,7 +8,7 @@ require './app/app'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-
+require 'web_helper'
 require 'database_cleaner'
 # require "data_mapper"
 # require "dm-postgres-adapter"

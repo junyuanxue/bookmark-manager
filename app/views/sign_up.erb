@@ -1,9 +1,13 @@
+<% if flash.now[:password_mismatch] %>
+  <p class='password_mismatch'><%= flash.now[:password_mismatch] %></p>
+<% end %>
+
 <form action='/sign_up' method='post'>
   <label for='name'>
-    Name: <input type='text' name='name'>
+    Name: <input type='text' name='name' value='<%= params[:name] %>'>
   </label>
   <label for='email'>
-    Email: <input type='text' name='email'>
+    Email: <input type='text' name='email' value='<%= params[:email] %>'>
   </label>
   <label for='password'>
     Password: <input type='password' name='password'>

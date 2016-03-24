@@ -17,4 +17,11 @@ feature 'User sign up' do
   scenario 'No user created when passwords did not match' do
     expect { invalid_sign_up }.not_to change { User.count }
   end
+
+  scenario 'Display message when passwords mismatch' do
+    invalid_sign_up
+    message = "Passwords did not match"
+    expect(page.current_path).to eq '/sign_up'
+    expect(page).to have_content(message)
+  end
 end

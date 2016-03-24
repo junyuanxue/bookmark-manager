@@ -15,3 +15,10 @@ def sign_up_with_pw_mismatch
   fill_in :password_confirmation, with: 'chips'
   click_button 'Sign up'
 end
+
+def sign_up_invalid_email
+  visit '/sign_up'
+  fill_in :name, with: 'Mittens'
+  fill_in :password, with: 'fish'
+  fill_in :password_confirmation, with: 'fish'
+end

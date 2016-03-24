@@ -31,10 +31,14 @@ feature 'User sign up' do
 
   context 'Invalid sign up: email' do
     scenario 'User cannot sign up without entering an email' do
-      visit '/sign_up'
-      fill_in :name, with: 'Fluffy'
-      fill_in :password, with: 'fish'
-      fill_in :password_confirmation, with: 'fish'
+      sign_up_invalid_email
+      click_button 'Sign up'
+      expect(User.count).to eq 0
+    end
+
+    scenario 'User cannot sign up with invalid email format' do
+      sign_up_invalid_email
+      fill_in :email, with: 'invalid@email'
       click_button 'Sign up'
       expect(User.count).to eq 0
     end

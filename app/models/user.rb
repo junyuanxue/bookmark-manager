@@ -1,11 +1,12 @@
 require 'bcrypt'
+require 'dm-validations'
 
 class User
   include DataMapper::Resource
 
   property :id, Serial
   property :name, String
-  property :email, String
+  property :email, String, required: true
   property :password_hash, Text
 
   attr_accessor :password_confirmation

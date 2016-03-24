@@ -1,0 +1,8 @@
+body {
+  font-family: courier;
+  background-color: #FFFFCC;
+}
+
+input:invalid {
+  border: 1px solid red;
+}

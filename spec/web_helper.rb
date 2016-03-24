@@ -7,7 +7,7 @@ def sign_up
   click_button 'Sign up'
 end
 
-def invalid_sign_up
+def sign_up_with_pw_mismatch
   visit '/sign_up'
   fill_in :name, with: 'Mittens'
   fill_in :email, with: 'mittens@makersacademy.com'

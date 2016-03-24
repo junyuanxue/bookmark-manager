@@ -6,7 +6,10 @@ class User
 
   property :id, Serial
   property :name, String
-  property :email, String, format: :email_address, required: true
+  property :email, String, format: :email_address, required: true, unique: true,
+            messages: {
+              format: 'Invalid email format.'
+            }
   property :password_hash, Text
 
   attr_accessor :password_confirmation

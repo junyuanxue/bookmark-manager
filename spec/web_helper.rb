@@ -16,9 +16,11 @@ def sign_up_with_pw_mismatch
   click_button 'Sign up'
 end
 
-def sign_up_invalid_email
+def sign_up_invalid_email(email: nil)
   visit '/sign_up'
   fill_in :name, with: 'Mittens'
+  fill_in :email, with: email
   fill_in :password, with: 'fish'
   fill_in :password_confirmation, with: 'fish'
+  click_button 'Sign up'
 end

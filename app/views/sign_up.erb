@@ -1,6 +1,8 @@
 <% if flash.now[:password_mismatch] %>
-  <p class='password_mismatch'><%= flash.now[:password_mismatch] %></p>
+  <p><%= flash.now[:password_mismatch] %></p>
 <% end %>
+
+
 
 <form action='/sign_up' method='post'>
   <p>

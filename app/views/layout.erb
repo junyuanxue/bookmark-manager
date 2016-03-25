@@ -6,15 +6,8 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <p>Welcome <%= current_user.name %></p>
-
-      <form action='sessions' method='post'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
-
+    <%= partial :welcome %>
+    <%= partial :flash %>
     <%= yield %>
   </body>
 </html>

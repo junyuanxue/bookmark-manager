@@ -10,6 +10,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'helpers/session.rb'
 require 'database_cleaner'
+require 'timecop'
 # require "data_mapper"
 # require "dm-postgres-adapter"
 

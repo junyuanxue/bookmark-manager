@@ -1,0 +1,17 @@
+<form action='/sign_up' method='post'>
+  <p>
+    <input type='text' name='name' placeholder='Please enter your name' value='<%= @user.name %>' required>
+  </p>
+  <p>
+    <input type='email' name='email' placeholder='Please enter your Email' value='<%= @user.email %>' required>
+  </p>
+  <p>
+    <input type='password' name='password' placeholder='Please enter your password' required>
+  </p>
+  <p>
+    <input type='password' name='password_confirmation' placeholder='Please confirm your password' required>
+  </p>
+  <p>
+    <button type='submit'>Sign up</button>
+  </p>
+</form>

@@ -24,3 +24,10 @@ As a Makers student
 So that I can search for bookmarks
 I want to be able to filter links by a tag
 ```
+
+## Tools
+* Ruby
+* Sinatra
+* RSpec-Capybara
+* DataMapper
+* Postgres
